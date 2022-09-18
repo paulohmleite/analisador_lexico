@@ -24,7 +24,7 @@ import re
 
 nltk.download("punkt")
 
-file = open("exemplos/programa_simples.c", "r")
+file = open("exemplos/programa_simples.txt", "r")
 process = file.read()
 
 
