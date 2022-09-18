@@ -28,8 +28,8 @@ file = open("exemplos/programa_simples.c", "r")
 process = file.read()
 
 
-# definições
-operadores = "(=) | (-) | (+) | (\*) | (\++) | (--) | (<=) | (>=)"
+# definições gramática
+operadores = "(=) | (-) | (+) | (\*) | (\++) | (--) | (<=) | (>=) | (!=) | (>) | (<) | (==)"
 identificadores = "^[a-zA-Z_]+[a-zA-Z0-9_]*"
 keywords = ""
 
@@ -63,7 +63,13 @@ def limpar_espacos(codigo):
     return codigo_apos_scanner
 
 
+# função main
 if __name__ == "__main__":
+
+    # variaveis de saída do stacktrace de tokens
+    keywods_stacktrace = []
+    operadores_stacktrace = []
+    identificadores_stacktrace = []
 
     # limpar comentarios
     codigo_sem_comentarios = limpar_comentarios(process)
@@ -84,7 +90,7 @@ if __name__ == "__main__":
     print('oioi')
     print(codigo_limpo_espacos)
 
-    
+
     print(codigo_limpo_espacos_join_split == codigo_limpo_espacos)
 
 
@@ -95,3 +101,13 @@ if __name__ == "__main__":
         codigo.append(line)
 
     print(codigo)
+
+
+
+
+    tokens = nltk.word_tokenize('int a, b, c;')
+    print('esses são os tokens!!!')
+    print(tokens)
+
+
+
