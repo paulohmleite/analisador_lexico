@@ -12,24 +12,25 @@ import nltk
 import re
 
 
-nltk.download('punkt')
+nltk.download("punkt")
 
-file = open('programa_simples.c', 'r')
+file = open("programa_simples.c", "r")
 process = file.read()
 
-# funções 
+# funções
 def limpar_comentarios(process):
-  # remover comentarios do tipo //
-  comentarios_uma_linha = re.sub("//.*", "", process)
+    # remover comentarios do tipo //
+    comentarios_uma_linha = re.sub("//.*", "", process)
 
-  # remover comentarios do tipo /* */
-  comentarios_multiplas_linhas = re.sub("/\*[^*]*\*+(?:[^/*][^*]*\*+)*/", "", comentarios_uma_linha)
-  print(comentarios_multiplas_linhas)
+    # remover comentarios do tipo /* */
+    comentarios_multiplas_linhas = re.sub(
+        "/\*[^*]*\*+(?:[^/*][^*]*\*+)*/", "", comentarios_uma_linha
+    )
+    print(comentarios_multiplas_linhas)
 
-  # retornando codigo sem comentarios
-  return comentarios_multiplas_linhas
+    # retornando codigo sem comentarios
+    return comentarios_multiplas_linhas
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     codigo_sem_comentarios = limpar_comentarios(process)
